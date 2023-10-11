@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import "../server"
+import { Link } from 'react-router-dom'
 import Colors from '../helper/color'
 
 export default function Vans() {
@@ -11,7 +12,8 @@ export default function Vans() {
         
     }, [])
     const vansElement = vans.map(values=>(
-        <div key={values.id} className='py-12 px-20'>
+        <Link to={`/vans/${values.id}`}>
+            <div key={values.id} className='py-12 px-20'>
             <img className='w-80 h-80 rounded-lg' src={values.imageUrl} alt="" />
             <div>
                 <h3 className='text-2xl font-bold py-4'>{values.name}</h3>
@@ -19,6 +21,7 @@ export default function Vans() {
             </div>
             <i className={`py-3 px-8 rounded-lg text-white ${Colors(values.type)}`}>{values.type}</i>
         </div>
+        </Link>
     ))
   return (
     <div>
