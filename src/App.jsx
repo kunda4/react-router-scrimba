@@ -4,22 +4,19 @@ import Home from "./pages/Home"
 import About from "./pages/About"
 import Vans from "./pages/Vans"
 import VansDetail from "./pages/VansDetail"
+import Layout from "./components/Layout"
 
 export default function App() {
   return (
     <BrowserRouter>
-      <header className="flex justify-between p-4 bg-[#FFF7ED]">
-      <Link to ="/">#VANLIFE</Link>
-        <nav className=" flex gap-4">
-          <Link to ="/about">About</Link>
-          <Link to ="/vans">Vans</Link>
-        </nav>
-      </header>
+
       <Routes>
-        <Route path="/" element={<Home/>}/>
-        <Route path="/about" element={<About/>}/>
-        <Route path="/vans" element={<Vans/>}/>
-        <Route path="/vans/:id" element={<VansDetail/>}/>
+        <Route element={<Layout/>}>
+          <Route path="/" element={<Home/>}/>
+          <Route path="/about" element={<About/>}/>
+          <Route path="/vans" element={<Vans/>}/>
+          <Route path="/vans/:id" element={<VansDetail/>}/>
+        </Route>
       </Routes>
     </BrowserRouter>
   )
