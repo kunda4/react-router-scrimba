@@ -1,6 +1,6 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import Colors from '../helper/color'
+import Colors from '../../helper/color'
 export default function VansDetail() {
     const params = useParams()
     const [van, setVan] =React.useState(null)

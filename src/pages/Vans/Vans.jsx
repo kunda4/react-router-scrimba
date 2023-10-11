@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
-import "../server"
+import "../../server"
 import { Link } from 'react-router-dom'
-import Colors from '../helper/color'
+import Colors from '../../helper/color'
 
 export default function Vans() {
     const [vans, setVans] = React.useState([])
