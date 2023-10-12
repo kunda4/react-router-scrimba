@@ -15,7 +15,6 @@ export default function About() {
         <Link className="text-large py-4 px-10 text-white text-xl rounded-md bg-[#161616]" to="/vans">Explore our vans</Link>
     </div>
 </div>
-<footer className='bg-[#252525] text-[#AAAAAA] py-8 px-96 '>Ⓒ 2022 #VANLIFE</footer>
 </>
   )
 }
