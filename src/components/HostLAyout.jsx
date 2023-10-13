@@ -12,23 +12,23 @@ export default function HostLAyout() {
     <nav className=' flex gap-8'>
         <NavLink 
          style={({isActive})=> isActive ? activeStyles : null}
-        to="/host"
+        to="."
         end>
           Dashboard
           </NavLink>
         <NavLink 
          style={({isActive})=> isActive ? activeStyles : null}
-        to="/host/income">
+        to="income">
           Income
           </NavLink>
           <NavLink 
          style={({isActive})=> isActive ? activeStyles : null}
-        to="/host/vans">
+        to="vans">
           Vans
           </NavLink>
         <NavLink 
         style={({isActive})=> isActive ? activeStyles : null}
-        to="/host/review">
+        to="review">
           Review
           </NavLink>
     </nav>

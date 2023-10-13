@@ -1,6 +1,6 @@
 import { data } from 'autoprefixer'
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, Link, NavLink, Outlet } from 'react-router-dom'
 import Colors from '../../helper/color'
 
 export default function HostVanDetail() {
@@ -15,7 +15,19 @@ export default function HostVanDetail() {
     if(!currentVan){
         return <h1>Loading....</h1>
     }
+    const activeStyles = {
+        fontWeight: "bold",
+        textDecoration: "underline",
+        color: "#161616"
+    }
+
   return (
+    <section>
+        <Link
+        to=".."
+        relative="path"
+        className="back-button"
+        >&larr;<span className='pt-4'>Back to all vans</span></Link>
     <div className='bg-white py-6 px-10 my-8'>
         <div className='flex gap-10'>
         <img className='w-72' src={currentVan.imageUrl} alt="" />
@@ -26,14 +38,27 @@ export default function HostVanDetail() {
             <p>$<span>{currentVan.price}</span>/day</p>
         </div>
         </div>
-        <div className='flex flex-col gap-6 py-4'>
-        <p><span className='font-semibold'>Names:</span> {currentVan.name}</p>
-        <p> <span className='font-semibold'>Category:</span> {currentVan.type}</p>
-        <p><span className='font-semibold'>Descriprion:</span> {currentVan.description}</p>
-        <p> <span className='font-semibold'>Visibility:</span> Public</p>
-        </div>
-
 
     </div>
+        <nav className=' flex gap-8 py-6'>
+            <NavLink 
+            end
+             style={({isActive})=> isActive ? activeStyles : null}
+            to='.'>
+            Details
+            </NavLink>
+            <NavLink 
+             style={({isActive})=> isActive ? activeStyles : null}
+            to='price'>
+                Price
+                </NavLink>
+            <NavLink 
+             style={({isActive})=> isActive ? activeStyles : null}
+            to='photo'>
+                Photo
+                </NavLink>
+        </nav>
+        <Outlet context={{currentVan}}/>
+    </section>
   )
 }
